@@ -26,10 +26,10 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
 
       - name: Publish to Itch
-        uses: Ayowel/butler-to-itch@v1.0.0
+        uses: Ayowel/butler-to-itch@v1.2.0
         with:
           butler_key: ${{secrets.ITCHIO_TOKEN}}
           itch_user: mcnigma
           itch_game: 2025-gamedevtv-game-jam
           version: ${{ github.ref_name }}
-          files: "${{ steps.export.outputs.archive_directory }}/Gamedev-2025-web.zip"
+          files: "${{ steps.export.outputs.archive_directory }}/gamedev-2025-web.zip"
