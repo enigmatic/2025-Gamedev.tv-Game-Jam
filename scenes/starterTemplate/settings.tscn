@@ -14,10 +14,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8vxdm")
 theme_override_font_sizes/font_size = 16
-current_tab = 0
+current_tab = 1
 script = ExtResource("2_7yy6c")
 
 [node name="Video" type="TabBar" parent="."]
+visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../Controls")
 focus_neighbor_right = NodePath("../Audio")
@@ -123,7 +124,6 @@ theme_override_font_sizes/font_size = 24
 text = "Back"
 
 [node name="Audio" type="TabBar" parent="."]
-visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../Video")
 focus_neighbor_right = NodePath("../Controls")
@@ -257,20 +257,19 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Controls/HBoxContainer"]
 layout_mode = 2
 
-[node name="Up" type="Label" parent="Controls/HBoxContainer/VBoxContainer"]
+[node name="Jump" type="Label" parent="Controls/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 24
-text = "Up
-"
+text = "Jump"
 
-[node name="Down" type="Label" parent="Controls/HBoxContainer/VBoxContainer"]
+[node name="Attack" type="Label" parent="Controls/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 24
-text = "Down"
+text = "Attack"
 
 [node name="Left" type="Label" parent="Controls/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -293,12 +292,13 @@ layout_mode = 2
 layout_mode = 2
 focus_neighbor_top = NodePath("../../..")
 focus_neighbor_bottom = NodePath("../Down")
+action = "Jump"
 
 [node name="Down" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_qu75p")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Up")
 focus_neighbor_bottom = NodePath("../Left")
-action = "Down"
+action = "Attack"
 
 [node name="Left" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_qu75p")]
 layout_mode = 2
