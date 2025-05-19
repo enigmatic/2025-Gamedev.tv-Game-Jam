@@ -108,7 +108,7 @@ zoom = Vector2(3, 3)
 position = Vector2(87, 125)
 _acceleration = 12.0
 _deceleration = 20.0
-_jump_height = 1.0
+_jump_height = 2.0
 _air_control = 0.1
 
 [node name="Player" type="Node" parent="Crab"]

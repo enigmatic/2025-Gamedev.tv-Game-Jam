@@ -25,6 +25,13 @@ Utilities="*res://scenes/starterTemplate/utilities.tscn"
 AudioManager="*res://scenes/starterTemplate/audio_manager.tscn"
 Global="*res://scripts/autoloads/global.gd"
 
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=768
+window/size/resizable=false
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/maaacks_credits_scene/plugin.cfg")
