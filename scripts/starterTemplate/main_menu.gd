@@ -3,6 +3,8 @@ extends Control
 @onready var option_menu: TabContainer = $"../Settings"
 @onready var credits_menu: Credits = $"../Credits"
 
+@onready var my_root: Node = $"../.."
+
 func _ready():
 	$VBoxContainer/Start.grab_focus()
 
@@ -10,7 +12,7 @@ func reset_focus():
 	$VBoxContainer/Start.grab_focus()
 
 func _on_start_pressed():
-	Utilities.switch_scene("GDTVGame", self)
+	Utilities.switch_scene("GDTVGame", my_root)
 	# AudioManager.play_music_sound()
 
 func _on_option_pressed():

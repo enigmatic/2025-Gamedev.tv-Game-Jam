@@ -1,3 +1,4 @@
+@tool
 extends Credits
 
 @export var pre_scene: Node

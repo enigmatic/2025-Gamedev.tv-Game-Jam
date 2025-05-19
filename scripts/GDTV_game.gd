@@ -3,12 +3,16 @@ extends Node2D
 @onready var ui_layer: CanvasLayer = $CanvasLayer
 @onready var settings: TabContainer = $CanvasLayer/Panel/Settings
 
+var levelLoaded = false;
 '''
 Flow chart
 Game <==> Pause Menu ==> Settings
 '''
 
 func _ready():
+	if (!levelLoaded):
+		Utilities.loadLevel(0);
+		levelLoaded = true;
 	resume_game();
 
 func _input(event: InputEvent):

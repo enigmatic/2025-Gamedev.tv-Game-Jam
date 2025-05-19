@@ -2,6 +2,8 @@ extends Node
 
 # Scene manager
 @export var scenes: Array[PackedScene] = []
+@export var levels: Array[PackedScene] = []
+@export var win_screen: PackedScene;
 @export var scene_map: Dictionary = {}
 @export var is_persistence: bool = false
 
@@ -53,11 +55,40 @@ func load_video_settings():
 	DisplayServer.window_set_vsync_mode(vsync_index)
 
 # Scene manager
+var _last_scene:Node = null;
 func switch_scene(scene_name: StringName, cur_scene: Node):
 	var scene = scenes[scene_map[scene_name]].instantiate()
 	get_tree().root.add_child(scene)
 	cur_scene.queue_free()
+	_last_scene = scene;
 
+var _lastLevel:Node;
+var _levelNumber: int = 0;
+func loadLevel(levelNumber: int):
+	if (levelNumber < 0):
+		return;
+	if (levelNumber >= levels.size()):
+		Engine.time_scale = 0
+		var scene = win_screen.instantiate()
+		get_tree().root.add_child(scene);
+		if (_last_scene):
+			_last_scene.queue_free();
+			_last_scene = null;
+		if(_lastLevel):
+			_lastLevel.queue_free();
+			_lastLevel = null;
+		return;
+	
+	var level = levels[levelNumber].instantiate()
+	get_tree().root.add_child(level);
+	if(_lastLevel):
+		_lastLevel.queue_free();
+	_lastLevel = level;
+	_levelNumber = levelNumber;
+
+func loadNextLevel():
+	loadLevel(_levelNumber+1)
+	
 func hide_scene(scene):
 	scene.hide()
 

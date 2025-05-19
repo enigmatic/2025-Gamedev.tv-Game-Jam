@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://diur2ihmp877y"]
+
+[ext_resource type="Script" uid="uid://cj0nix3pip0ui" path="res://scripts/win-scene.gd" id="1_0fqbm"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/starterTemplate/MinimalUI/MinimalUI.tres" id="1_xirn5"]
+[ext_resource type="PackedScene" uid="uid://dc388hkklqvvc" path="res://scenes/starterTemplate/main_menu.tscn" id="2_6vg2h"]
+
+[node name="Winner" type="CanvasLayer"]
+script = ExtResource("1_0fqbm")
+main_menu = ExtResource("2_6vg2h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Back" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 0)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -54.0
+offset_right = -19.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainer2/SoundEffects")
+focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainer2/Master")
+theme = ExtResource("1_xirn5")
+theme_override_font_sizes/font_size = 24
+text = "Return to Menu"
+
+[node name="Master" type="Label" parent="."]
+offset_top = 316.0
+offset_right = 1016.0
+offset_bottom = 387.0
+size_flags_horizontal = 0
+size_flags_vertical = 6
+focus_mode = 1
+theme_override_font_sizes/font_size = 24
+text = "You have finally escaped!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
