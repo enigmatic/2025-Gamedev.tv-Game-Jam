@@ -1,4 +1,20 @@
 # Attribution
+
+## Art
+
+### Crab, Jellyfish, Octopus sprites
+Author: [Ethen](https://elthen.itch.io/)
+[Crab](https://elthen.itch.io/2d-pixel-art-crab-sprites)
+[Jellyfish](https://elthen.itch.io/2d-pixel-art-jellyfish-sprites)
+[Octopus](https://elthen.itch.io/2d-pixel-art-octopus-sprites)
+License: [CC By-NC 4.0](https://www.patreon.com/posts/27430241)
+
+### Undewater And Cave Tilesets
+Author: [Segart](https://segart.itch.io)
+[2D 16px Underwater Tileset](https://segart.itch.io/2d-16px-underwater-tileset)
+[2D 16px Cave Tileset](https://segart.itch.io/2d-16px-cave-tileset)
+
+
 ## Plugins
 
 ### Godot Credits Scene

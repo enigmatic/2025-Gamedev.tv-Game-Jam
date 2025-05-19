@@ -11,7 +11,7 @@ func reset_focus():
 
 func _on_start_pressed():
 	Utilities.switch_scene("GDTVGame", self)
-	AudioManager.play_music_sound()
+	# AudioManager.play_music_sound()
 
 func _on_option_pressed():
 	option_menu.show()
@@ -21,6 +21,7 @@ func _on_option_pressed():
 func _on_credits_pressed():
 	credits_menu.show();
 	credits_menu.reset();
+	credits_menu.give_focus();
 	AudioManager.play_button_sound();
 
 func _on_quit_pressed():
