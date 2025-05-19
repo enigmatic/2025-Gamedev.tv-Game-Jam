@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc388hkklqvvc"]
+[gd_scene load_steps=5 format=3 uid="uid://dc388hkklqvvc"]
 
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/starterTemplate/MinimalUI/MinimalUI.tres" id="1_0ajpt"]
 [ext_resource type="Script" uid="uid://cb5dqsum5m5dt" path="res://scripts/starterTemplate/main_menu.gd" id="1_tievw"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/starterTemplate/settings.tscn" id="3_dt7l5"]
 [ext_resource type="PackedScene" uid="uid://d0llqgvmfktnq" path="res://scenes/credits/credits.tscn" id="4_g8cyg"]
-[ext_resource type="Script" uid="uid://bo5vumcgo4a2f" path="res://scenes/credits/credits.gd" id="5_x20yj"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -102,9 +101,11 @@ pre_scene = NodePath("../MainMenu")
 
 [node name="Credits" parent="UI" node_paths=PackedStringArray("pre_scene") instance=ExtResource("4_g8cyg")]
 visible = false
-script = ExtResource("5_x20yj")
 pre_scene = NodePath("../MainMenu")
-attribution_file_path = "res://ATTRIBUTION.md"
+h1_font_size = 72
+h2_font_size = 64
+h3_font_size = 48
+h4_font_size = 32
 
 [connection signal="pressed" from="UI/MainMenu/VBoxContainer/Start" to="UI/MainMenu" method="_on_start_pressed"]
 [connection signal="pressed" from="UI/MainMenu/VBoxContainer/Option" to="UI/MainMenu" method="_on_option_pressed"]

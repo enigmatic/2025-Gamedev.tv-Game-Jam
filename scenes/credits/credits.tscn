@@ -1,49 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0llqgvmfktnq"]
+[gd_scene load_steps=2 format=3 uid="uid://d0llqgvmfktnq"]
 
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_credits_scene/base/scenes/credits/credits.tscn" id="1_8n0nl"]
-[ext_resource type="Script" uid="uid://e8ega4ss7slv" path="res://addons/maaacks_credits_scene/examples/scenes/credits/credits.gd" id="2_c8xcy"]
 
 [node name="Credits" instance=ExtResource("1_8n0nl")]
-script = ExtResource("2_c8xcy")
-attribution_file_path = "res://addons/maaacks_credits_scene/examples/ATTRIBUTION.md"
-
-[node name="HeaderSpace" parent="ScrollContainer/VBoxContainer" index="0"]
-custom_minimum_size = Vector2(0, 768)
+h1_font_size = 0
+h2_font_size = 0
+h3_font_size = 0
+h4_font_size = 0
 
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
-custom_minimum_size = Vector2(1024, 0)
-text = "[center][font_size=64]Collaborators[/font_size]
+text = "[center]
+[font_size=64]Art[/font_size]
 
-[font_size=48]Role[/font_size]
-Person 1  
-Person 2  
-[url=]Person w/ Link[/url]  
+[font_size=48]Crab, Jellyfish, Octopus sprites[/font_size]
+Author: [url=https://elthen.itch.io/]Ethen[/url]
+[url=https://elthen.itch.io/2d-pixel-art-crab-sprites]Crab[/url]
+[url=https://elthen.itch.io/2d-pixel-art-jellyfish-sprites]Jellyfish[/url]
+[url=https://elthen.itch.io/2d-pixel-art-octopus-sprites]Octopus[/url]
+License: [url=https://www.patreon.com/posts/27430241]CC By-NC 4.0[/url]
+
+[font_size=48]Undewater And Cave Tilesets[/font_size]
+Author: [url=https://segart.itch.io]Segart[/url]
+[url=https://segart.itch.io/2d-16px-underwater-tileset]2D 16px Underwater Tileset[/url]
+[url=https://segart.itch.io/2d-16px-cave-tileset]2D 16px Cave Tileset[/url]
 
 
-[font_size=64]Sourced / Unaffiliated[/font_size]
-[font_size=48]Asset Type[/font_size]
-[font_size=32]Use Case[/font_size]
-Author: [url=]Name[/url]  
-Source: [url=]Domain : webpage.html[/url]  
-License: [url=]License[/url]
+[font_size=64]Plugins[/font_size]
 
+[font_size=48]Godot Credits Scene[/font_size]
+Author: [url=https://github.com/Maaack/Godot-Credits-Scene/graphs/contributors]Marek Belski[/url]  
+Source: [url=https://github.com/Maaack/Godot-Credits-Scene]github: Godot-Credits-Scene[/url]  
+License: [url=LICENSE.txt]MIT License[/url]  
+
+[font_size=48]Simple Concept Template[/font_size]
+Author: [url=https://godotengine.org/asset-library/asset?user=BosenCheng]BosenCheng[/url]
+Source: [url=https://godotengine.org/asset-library/asset/2578]Godot Asset Library: Simple Concept Template[/url]
+License: [url=LICENSE.txt]MIT License[/url] 
+
+[font_size=32]Simple Concept Template includes elements from:[/font_size]
+[url=https://itch.io/queue/c/1473270/themes-for-godot-games?game_id=1091572]Minimalistic UI Theme for Godot Games[/url]
+[url=https://github.com/ACh-K/Cubic-11]Cubic-11 font[/url]
+[url=https://ellr.itch.io/universal-ui-soundpack]Universal UI/Menu Soundpack[/url]
+[url=https://tallbeard.itch.io/music-loop-bundle]Music Loop Bundle[/url]
 
 [font_size=64]Tools[/font_size]
 [font_size=32]Godot[/font_size]
 Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
 Source: [url=https://godotengine.org/]godotengine.org[/url]  
 License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
-
-[font_size=32]Git[/font_size]
-Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
-Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
-License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
-
-[font_size=32]Godot Credits Scene[/font_size]
-Author: [url=https://github.com/Maaack/Godot-Credits-Scene/graphs/contributors]Marek Belski[/url]  
-Source: [url=https://github.com/Maaack/Godot-Credits-Scene]github: Godot-Credits-Scene[/url]  
-License: [url=LICENSE.txt]MIT License[/url]  
 [/center]"
-
-[node name="FooterSpace" parent="ScrollContainer/VBoxContainer" index="2"]
-custom_minimum_size = Vector2(0, 768)
