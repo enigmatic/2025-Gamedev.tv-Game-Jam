@@ -92,8 +92,8 @@ func _air_physics(delta: float):
 
 
 func _on_aquarium_in_water():
+	velocity.y = velocity.y / 4
 	_underWater = true;
-
 
 func _on_aquarium_out_of_water():
 	_underWater = false;
