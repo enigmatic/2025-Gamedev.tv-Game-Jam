@@ -272,7 +272,6 @@ height = 12.0
 
 [node name="PlayerCrab" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_qu84j")
-_jump_height = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -11)

@@ -80,7 +80,7 @@ func loadLevel(levelNumber: int):
 		return;
 	
 	var level = levels[levelNumber].instantiate()
-	get_tree().root.add_child(level);
+	get_tree().root.call_deferred("add_child",level);
 	if(_lastLevel):
 		_lastLevel.queue_free();
 	_lastLevel = level;
