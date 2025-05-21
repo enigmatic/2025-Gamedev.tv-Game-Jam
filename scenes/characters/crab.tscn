@@ -272,7 +272,6 @@ radius = 4.0
 height = 12.0
 
 [node name="PlayerCrab" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 0
 platform_floor_layers = 4294967041
 script = ExtResource("1_qu84j")
 

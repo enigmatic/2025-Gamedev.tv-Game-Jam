@@ -86,6 +86,9 @@ func loadLevel(levelNumber: int):
 	_lastLevel = level;
 	_levelNumber = levelNumber;
 
+func reloadLevel():
+	loadLevel(_levelNumber)
+	
 func loadNextLevel():
 	loadLevel(_levelNumber+1)
 	

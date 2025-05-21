@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://x8khrexoscpv"]
+[gd_scene load_steps=8 format=3 uid="uid://x8khrexoscpv"]
 
 [ext_resource type="Script" uid="uid://dc8mk2856buou" path="res://scripts/starterTemplate/Utilities.gd" id="1_1a5s3"]
 [ext_resource type="PackedScene" uid="uid://dc388hkklqvvc" path="res://scenes/starterTemplate/main_menu.tscn" id="2_2wsm8"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://diur2ihmp877y" path="res://scenes/winner.tscn" id="4_0y8p8"]
 [ext_resource type="PackedScene" uid="uid://dec243wo6t0kd" path="res://scenes/levels/level_1.tscn" id="4_f2rh0"]
 [ext_resource type="PackedScene" uid="uid://dvg7s0j0tdf0i" path="res://scenes/levels/level_2.tscn" id="5_xm15d"]
+[ext_resource type="PackedScene" uid="uid://brg5st1f8p33e" path="res://scenes/levels/level_3.tscn" id="6_evxxt"]
 
 [node name="Utilities" type="Node"]
 script = ExtResource("1_1a5s3")
 scenes = Array[PackedScene]([ExtResource("3_1ydpw"), ExtResource("2_2wsm8")])
-levels = Array[PackedScene]([ExtResource("4_f2rh0"), ExtResource("5_xm15d")])
+levels = Array[PackedScene]([ExtResource("4_f2rh0"), ExtResource("5_xm15d"), ExtResource("6_evxxt")])
 win_screen = ExtResource("4_0y8p8")
 scene_map = {
 "GDTVGame": 0,

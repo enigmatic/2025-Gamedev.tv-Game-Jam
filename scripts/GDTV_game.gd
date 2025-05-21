@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var ui_layer: CanvasLayer = $CanvasLayer
+@onready var reset_layer: CanvasLayer = $ResetScreen
 @onready var settings: TabContainer = $CanvasLayer/Panel/Settings
 
 var levelLoaded = false;
@@ -10,7 +11,11 @@ Game <==> Pause Menu ==> Settings
 '''
 
 func _ready():
+	if !Global.player_died.is_connected(_on_player_die):
+		Global.player_died.connect(_on_player_die)
+		
 	if (!levelLoaded):
+		reset_layer.visible = false;
 		Utilities.loadLevel(0);
 		levelLoaded = true;
 	resume_game();
@@ -47,3 +52,10 @@ func _on_option_pressed():
 
 func _on_main_menu_pressed():
 	Utilities.switch_scene("MainMenu", self)
+
+func _on_player_die():
+	reset_layer.visible = true;
+
+func _on_restart_pressed() -> void:
+	Utilities.reloadLevel()
+	reset_layer.visible = false;

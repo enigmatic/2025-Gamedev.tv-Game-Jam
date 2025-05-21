@@ -7,6 +7,33 @@
 [node name="GDTVGame" type="Node2D"]
 script = ExtResource("1_lbhrr")
 
+[node name="ResetScreen" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="ResetScreen"]
+offset_right = 1024.0
+offset_bottom = 768.0
+
+[node name="Label" type="Label" parent="ResetScreen/Panel"]
+layout_mode = 0
+offset_top = 300.0
+offset_right = 1024.0
+offset_bottom = 323.0
+theme = ExtResource("3_p57ef")
+text = "You Died"
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="ResetScreen/Panel"]
+custom_minimum_size = Vector2(150, 0)
+offset_left = 438.0
+offset_top = 335.0
+offset_right = 588.0
+offset_bottom = 365.0
+focus_neighbor_top = NodePath("../MainMenu")
+focus_neighbor_bottom = NodePath("../Option")
+theme = ExtResource("3_p57ef")
+theme_override_font_sizes/font_size = 24
+text = "Restart"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
@@ -69,6 +96,7 @@ pre_scene = NodePath("../../..")
 position = Vector2(170.5, 100)
 zoom = Vector2(3, 3)
 
+[connection signal="pressed" from="ResetScreen/Panel/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/PauseMenu/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/PauseMenu/Option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/PauseMenu/MainMenu" to="." method="_on_main_menu_pressed"]
