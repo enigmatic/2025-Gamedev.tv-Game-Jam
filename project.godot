@@ -69,6 +69,11 @@ Enter={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Ground"
+2d_physics/layer_2="Enemiess"
+
 [maaacks_credits_scene]
 
 disable_plugin_dialogues=true

@@ -15,6 +15,8 @@ var _jump_velocity: float;
 
 @onready var _sprite : AnimatedSprite2D = $AnimatedSprite2D;
 
+var alive: bool = true;
+
 var _direction: float;
 var _underWater: bool = true;
 
@@ -37,14 +39,15 @@ func face_right():
 	return;
 	
 func run(direction: float):
-	_direction = direction;
+	if alive:
+		_direction = direction;
 	
 func jump():
-	if is_on_floor():
+	if alive && is_on_floor():
 		velocity.y = _jump_velocity
 		
 func stop_jump():
-	if velocity.y < 0:
+	if alive && velocity.y < 0:
 		velocity.y = 0;
 
 #endregion
@@ -97,3 +100,7 @@ func _on_aquarium_in_water():
 
 func _on_aquarium_out_of_water():
 	_underWater = false;
+
+func kill():
+	alive = false;
+	_direction = 0;

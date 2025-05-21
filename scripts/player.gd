@@ -10,3 +10,8 @@ func _input(event : InputEvent):
 		
 func _process(_delta: float):
 	_character.run(Input.get_axis("Left", "Right"));
+
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if (body is Enemy):
+		_character.kill();
