@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bbibsjpv5r08t"]
+[gd_scene load_steps=46 format=3 uid="uid://bbibsjpv5r08t"]
 
 [ext_resource type="Texture2D" uid="uid://mm2a1bjysdka" path="res://assets/Jellyfish Sprite Sheet.png" id="1_31bh7"]
 [ext_resource type="Script" uid="uid://docfuampomsik" path="res://scripts/jellyfish.gd" id="1_aw1ts"]
@@ -183,6 +183,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_iof7n"]
 resource_name = "death"
+length = 0.36667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -363,19 +364,27 @@ animation = &"death"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w8qyv"]
+switch_mode = 2
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nnoyo"]
+advance_mode = 2
+advance_expression = "alive == false"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5sxcp"]
 states/Movement/node = SubResource("AnimationNodeStateMachine_skv2y")
 states/Movement/position = Vector2(394, 100)
 states/death/node = SubResource("AnimationNodeAnimation_skv2y")
 states/death/position = Vector2(599, 100)
-transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_5sxcp"), "death", "End", SubResource("AnimationNodeStateMachineTransition_w8qyv")]
-graph_offset = Vector2(-99.7728, 0)
+transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_5sxcp"), "death", "End", SubResource("AnimationNodeStateMachineTransition_w8qyv"), "Movement", "death", SubResource("AnimationNodeStateMachineTransition_nnoyo")]
+graph_offset = Vector2(51.4956, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0h5to"]
-radius = 3.0
+radius = 2.0
 height = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aw1ts"]
+radius = 4.12311
 
 [node name="Jellyfish" type="CharacterBody2D"]
 collision_layer = 2
@@ -402,3 +411,14 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_0h5to")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -2)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_aw1ts")
+
+[connection signal="animation_finished" from="AnimatedSprite2D/AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

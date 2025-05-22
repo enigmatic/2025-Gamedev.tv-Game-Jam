@@ -3,6 +3,12 @@ extends Node
 @onready var _character:CharacterBody2D = self.get_parent();
 
 func _input(event : InputEvent):
+	if event.is_action_released("Reset"):
+		if (get_tree().current_scene):
+			get_tree().reload_current_scene();
+		else:
+			Utilities.reloadLevel();
+			
 	if event.is_action_pressed("Jump"):
 		_character.jump();
 	if event.is_action_released("Jump"):

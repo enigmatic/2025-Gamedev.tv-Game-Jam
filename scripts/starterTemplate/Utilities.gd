@@ -7,6 +7,8 @@ extends Node
 @export var scene_map: Dictionary = {}
 @export var is_persistence: bool = false
 
+signal level_loaded
+
 const PATH = "user://settings.cfg"
 var config: ConfigFile
 
@@ -85,6 +87,7 @@ func loadLevel(levelNumber: int):
 		_lastLevel.queue_free();
 	_lastLevel = level;
 	_levelNumber = levelNumber;
+	level_loaded.emit();
 
 func reloadLevel():
 	loadLevel(_levelNumber)

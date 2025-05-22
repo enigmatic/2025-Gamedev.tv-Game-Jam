@@ -53,6 +53,8 @@ tile_map_data = PackedByteArray("AAAAACYAAAAAAAAAAAABACYAAAABAAAAAAACACYAAAACAAA
 tile_set = SubResource("TileSet_gee14")
 
 [node name="Goal" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="leftSide" type="CollisionShape2D" parent="Goal"]
 position = Vector2(-34, 44.5)

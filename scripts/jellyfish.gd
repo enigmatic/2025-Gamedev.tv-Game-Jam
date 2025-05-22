@@ -6,6 +6,7 @@ extends Enemy
 var _movingTo:Array[Vector2] = [];
 
 func _ready():
+	super._ready()
 	_speed *= Global.ppt;
 	if (_targetPoint):
 		_movingTo.push_back(_targetPoint.global_position);
@@ -14,7 +15,7 @@ func _ready():
 		position.y = randf_range(position.y, _targetPoint.global_position.y)
 
 func _process(_delta: float) -> void:
-	if (_movingTo.size() == 0):
+	if (_movingTo.size() == 0 || !alive):
 		return;
 		
 	var target = _movingTo[0];
@@ -27,3 +28,15 @@ func _process(_delta: float) -> void:
 		_movingTo.push_back(target);
 	
 	move_and_slide()
+
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if anim_name == 'death':
+		self.queue_free();
+
+
+func _on_area_2d_body_entered(body: Character) -> void:
+	if (body.is_in_group("Player") && alive):
+		set_collision_layer_value(2, false);
+		alive = false;
+		bounce_character(body)

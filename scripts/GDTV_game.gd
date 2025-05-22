@@ -14,6 +14,9 @@ func _ready():
 	if !Global.player_died.is_connected(_on_player_die):
 		Global.player_died.connect(_on_player_die)
 		
+	if !Utilities.level_loaded.is_connected(_on_level_loaded):
+		Utilities.level_loaded.connect(_on_level_loaded)
+		
 	if (!levelLoaded):
 		reset_layer.visible = false;
 		Utilities.loadLevel(0);
@@ -58,4 +61,6 @@ func _on_player_die():
 
 func _on_restart_pressed() -> void:
 	Utilities.reloadLevel()
+
+func _on_level_loaded() -> void:
 	reset_layer.visible = false;

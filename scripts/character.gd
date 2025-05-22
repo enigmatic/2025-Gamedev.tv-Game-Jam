@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Character
+
 @export var _faceRight: bool = true;
 
 @export_category("Locomotion")
@@ -104,3 +106,4 @@ func _on_aquarium_out_of_water():
 func kill():
 	alive = false;
 	_direction = 0;
+	set_collision_layer_value(3, false)

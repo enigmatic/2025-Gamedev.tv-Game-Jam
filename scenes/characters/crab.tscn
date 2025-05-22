@@ -34,21 +34,21 @@ region = Rect2(96, 64, 32, 32)
 atlas = ExtResource("2_507gp")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvuet"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_utqan"]
 atlas = ExtResource("2_507gp")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_trtic"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn824"]
 atlas = ExtResource("2_507gp")
-region = Rect2(32, 32, 32, 32)
+region = Rect2(32, 33, 32, 31)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir15t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6fhh"]
 atlas = ExtResource("2_507gp")
-region = Rect2(64, 32, 32, 32)
+region = Rect2(64, 33, 32, 31)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ca42v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_volqe"]
 atlas = ExtResource("2_507gp")
-region = Rect2(96, 32, 32, 32)
+region = Rect2(96, 33, 32, 31)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rysoc"]
 animations = [{
@@ -98,21 +98,21 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kvuet")
+"texture": SubResource("AtlasTexture_utqan")
 }],
-"loop": true,
+"loop": false,
 "name": &"stop",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_trtic")
+"texture": SubResource("AtlasTexture_qn824")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ir15t")
+"texture": SubResource("AtlasTexture_s6fhh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ca42v")
+"texture": SubResource("AtlasTexture_volqe")
 }],
 "loop": true,
 "name": &"walk",
@@ -272,6 +272,7 @@ radius = 4.0
 height = 12.0
 
 [node name="PlayerCrab" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 4
 platform_floor_layers = 4294967041
 script = ExtResource("1_qu84j")
 

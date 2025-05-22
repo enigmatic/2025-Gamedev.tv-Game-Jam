@@ -24,6 +24,7 @@ horizontal_alignment = 1
 
 [node name="Restart" type="Button" parent="ResetScreen/Panel"]
 custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
 offset_left = 438.0
 offset_top = 335.0
 offset_right = 588.0
