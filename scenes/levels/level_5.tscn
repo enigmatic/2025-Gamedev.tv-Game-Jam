@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=4 uid="uid://uf13vk5q6vyv"]
+
+[ext_resource type="TileSet" uid="uid://ct2r7jonebp0f" path="res://assets/level_tiles.tres" id="1_fi56y"]
+[ext_resource type="PackedScene" uid="uid://ckwkb8hx6fx6l" path="res://scenes/aquarium.tscn" id="2_hldbq"]
+[ext_resource type="PackedScene" uid="uid://bla5sb547sjk4" path="res://scenes/characters/crab.tscn" id="4_mxx4w"]
+[ext_resource type="PackedScene" uid="uid://bbibsjpv5r08t" path="res://scenes/characters/jellyfish.tscn" id="5_vvoq0"]
+
+[node name="Level" type="Node"]
+
+[node name="Level Map" type="TileMapLayer" parent="."]
+position = Vector2(-29, -11)
+tile_map_data = PackedByteArray("AAADAA0AAAABAAEAAAAVAA0AAAABAAEAAAAUAA0AAAABAAEAAAATAA0AAAABAAEAAAASAA0AAAABAAEAAAARAA0AAAABAAEAAAAQAA0AAAABAAEAAAAPAA0AAAABAAEAAAAOAA0AAAABAAEAAAANAA0AAAABAAEAAAAMAA0AAAABAAEAAAALAA0AAAABAAEAAAAJAA0AAAABAAEAAAAIAA0AAAABAAEAAAAHAA0AAAABAAEAAAAGAA0AAAABAAEAAAAFAA0AAAABAAEAAAAEAA0AAAABAAEAAAAFAAwAAAAAAAIAAAAGAAwAAAABAAIAAAAFAAsAAAAAAAEAAAAGAAsAAAABAAEAAAAHAAsAAAABAAEAAAAHAAwAAAABAAIAAAAIAAsAAAABAAEAAAAIAAwAAAABAAIAAAAOAAkAAAAAAAIAAAAOAAoAAAAAAAIAAAAPAAkAAAABAAIAAAAPAAoAAAABAAIAAAAQAAoAAAACAAIAAAAQAAkAAAACAAIAAAAQAAsAAAACAAIAAAAQAAwAAAACAAIAAAAPAAsAAAABAAIAAAAPAAwAAAABAAIAAAAOAAsAAAAAAAIAAAAOAAwAAAAAAAIAAAAOAAgAAAAAAAIAAAAOAAcAAAAAAAEAAAAPAAcAAAABAAEAAAAQAAcAAAACAAEAAAAPAAgAAAABAAIAAAAQAAgAAAACAAIAAAASAAcAAAAAAAEAAAASAAgAAAAAAAIAAAATAAcAAAABAAEAAAATAAgAAAABAAIAAAATAAkAAAABAAIAAAATAAoAAAABAAIAAAATAAsAAAABAAIAAAAUAAsAAAACAAIAAAAUAAoAAAACAAIAAAAUAAkAAAACAAIAAAAUAAgAAAACAAIAAAAUAAcAAAACAAEAAAASAAoAAAAAAAIAAAASAAkAAAAAAAIAAAASAAsAAAAAAAIAAAATAAwAAAABAAIAAAASAAwAAAAAAAIAAAAUAAwAAAACAAIAAAAKAAcAAAACAAEAAAAJAAcAAAABAAEAAAAIAAcAAAABAAEAAAAHAAcAAAAAAAEAAAAIAAgAAAABAAIAAAAIAAkAAAABAAIAAAAIAAoAAAABAAIAAAAJAAgAAAABAAIAAAAJAAkAAAABAAIAAAAJAAoAAAABAAIAAAAJAAsAAAABAAIAAAAJAAwAAAABAAIAAAAKAAwAAAACAAIAAAAKAAsAAAACAAIAAAAKAAoAAAACAAIAAAAKAAkAAAACAAIAAAAKAAgAAAACAAIAAAAKAA0AAAABAAEAAAAHAAoAAAAAAAIAAAAHAAkAAAAAAAIAAAAHAAgAAAAAAAIAAAA=")
+tile_set = ExtResource("1_fi56y")
+
+[node name="Aquarium" parent="." instance=ExtResource("2_hldbq")]
+
+[node name="PlayerCrab" parent="." instance=ExtResource("4_mxx4w")]
+position = Vector2(31, 88)
+
+[node name="Jellyfish" parent="." instance=ExtResource("5_vvoq0")]
+position = Vector2(128, 154)
+_speed = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(170.5, 100)
+zoom = Vector2(3, 3)
+
+[node name="Jellyfish2" parent="." instance=ExtResource("5_vvoq0")]
+position = Vector2(301, 68)
+
+[node name="Jellyfish3" parent="." node_paths=PackedStringArray("_targetPoint") instance=ExtResource("5_vvoq0")]
+position = Vector2(170, 127)
+_targetPoint = NodePath("Target")
+
+[node name="Target" type="Node2D" parent="Jellyfish3"]
+position = Vector2(0, -50)
+
+[node name="Jellyfish4" parent="." instance=ExtResource("5_vvoq0")]
+position = Vector2(102, 126)
+_speed = 2
+
+[connection signal="inWater" from="Aquarium" to="PlayerCrab" method="_on_aquarium_in_water"]
+[connection signal="outOfWater" from="Aquarium" to="PlayerCrab" method="_on_aquarium_out_of_water"]

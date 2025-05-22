@@ -15,6 +15,7 @@ class_name Character
 @export var _max_underwater_fall:int = 4;
 var _jump_velocity: float;
 
+var bouncing:bool = false;
 @onready var _sprite : AnimatedSprite2D = $AnimatedSprite2D;
 
 var alive: bool = true;
@@ -49,7 +50,7 @@ func jump():
 		velocity.y = _jump_velocity
 		
 func stop_jump():
-	if alive && velocity.y < 0:
+	if !bouncing && alive && velocity.y < 0:
 		velocity.y = 0;
 
 #endregion
@@ -62,6 +63,8 @@ func _physics_process(delta: float):
 		face_right();
 		
 	if is_on_floor():
+		if bouncing: 
+			bouncing = false;
 		_ground_physics(delta);
 	else:
 		_air_physics(delta);

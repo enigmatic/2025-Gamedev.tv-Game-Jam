@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=4 uid="uid://brg5st1f8p33e"]
+[gd_scene load_steps=7 format=4 uid="uid://brg5st1f8p33e"]
 
 [ext_resource type="TileSet" uid="uid://ct2r7jonebp0f" path="res://assets/level_tiles.tres" id="1_0ljxa"]
+[ext_resource type="Script" uid="uid://45hkg0xx62md" path="res://scripts/tutorials/step_3.gd" id="1_ftfob"]
 [ext_resource type="PackedScene" uid="uid://ckwkb8hx6fx6l" path="res://scenes/aquarium.tscn" id="2_0qepi"]
 [ext_resource type="PackedScene" uid="uid://bla5sb547sjk4" path="res://scenes/characters/crab.tscn" id="3_fmg3e"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/starterTemplate/MinimalUI/MinimalUI.tres" id="3_ftfob"]
 [ext_resource type="PackedScene" uid="uid://bbibsjpv5r08t" path="res://scenes/characters/jellyfish.tscn" id="4_0qepi"]
 
 [node name="Level" type="Node"]
+script = ExtResource("1_ftfob")
 
 [node name="Level Map" type="TileMapLayer" parent="."]
 position = Vector2(-29, -11)
@@ -14,8 +17,16 @@ tile_set = ExtResource("1_0ljxa")
 
 [node name="Aquarium" parent="." instance=ExtResource("2_0qepi")]
 
+[node name="Reset" type="Label" parent="."]
+offset_left = 47.0
+offset_top = 48.0
+offset_right = 257.0
+offset_bottom = 76.0
+theme = ExtResource("3_ftfob")
+text = "Reset Level: R"
+
 [node name="PlayerCrab" parent="." instance=ExtResource("3_fmg3e")]
-position = Vector2(32, 192)
+position = Vector2(34, 66)
 
 [node name="Jellyfish" parent="." node_paths=PackedStringArray("_targetPoint") instance=ExtResource("4_0qepi")]
 position = Vector2(122, 162)

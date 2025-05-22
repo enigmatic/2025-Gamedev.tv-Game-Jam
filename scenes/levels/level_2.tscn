@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=4 uid="uid://dvg7s0j0tdf0i"]
+[gd_scene load_steps=6 format=4 uid="uid://dvg7s0j0tdf0i"]
 
+[ext_resource type="Script" uid="uid://bmr14phfvj3g4" path="res://scripts/tutorials/step_2.gd" id="1_l37oo"]
 [ext_resource type="TileSet" uid="uid://ct2r7jonebp0f" path="res://assets/level_tiles.tres" id="1_ra442"]
 [ext_resource type="PackedScene" uid="uid://ckwkb8hx6fx6l" path="res://scenes/aquarium.tscn" id="2_fiq81"]
 [ext_resource type="PackedScene" uid="uid://bla5sb547sjk4" path="res://scenes/characters/crab.tscn" id="3_l37oo"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/starterTemplate/MinimalUI/MinimalUI.tres" id="4_qpwj6"]
 
 [node name="Level" type="Node"]
+script = ExtResource("1_l37oo")
 
 [node name="Level Map" type="TileMapLayer" parent="."]
 position = Vector2(-29, -11)
@@ -13,8 +16,16 @@ tile_set = ExtResource("1_ra442")
 
 [node name="Aquarium" parent="." instance=ExtResource("2_fiq81")]
 
+[node name="Move" type="Label" parent="."]
+offset_left = 23.0
+offset_top = 50.0
+offset_right = 199.0
+offset_bottom = 78.0
+theme = ExtResource("4_qpwj6")
+text = "Move Left: A"
+
 [node name="PlayerCrab" parent="." instance=ExtResource("3_l37oo")]
-position = Vector2(32, 192)
+position = Vector2(30, 81)
 
 [connection signal="inWater" from="Aquarium" to="PlayerCrab" method="_on_aquarium_in_water"]
 [connection signal="outOfWater" from="Aquarium" to="PlayerCrab" method="_on_aquarium_out_of_water"]

@@ -18,4 +18,5 @@ func kill():
 	
 func bounce_character(myChar: Character):
 	myChar.velocity.y = _jump_velocity;
+	myChar.bouncing = true;
 	
