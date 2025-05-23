@@ -31,7 +31,6 @@ position = Vector2(34, 66)
 [node name="Jellyfish" parent="." node_paths=PackedStringArray("_targetPoint") instance=ExtResource("4_0qepi")]
 position = Vector2(122, 162)
 _targetPoint = NodePath("Target")
-_speed = 2
 
 [node name="Target" type="Node2D" parent="Jellyfish"]
 position = Vector2(0, -45)

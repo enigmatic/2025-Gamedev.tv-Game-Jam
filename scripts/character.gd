@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Character
 
 @export var _faceRight: bool = true;
+@export  var _sprite : AnimatedSprite2D;
 
 @export_category("Locomotion")
 @export var _speed = 3;
@@ -16,7 +17,6 @@ class_name Character
 var _jump_velocity: float;
 
 var bouncing:bool = false;
-@onready var _sprite : AnimatedSprite2D = $AnimatedSprite2D;
 
 var alive: bool = true;
 

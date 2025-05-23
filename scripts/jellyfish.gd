@@ -1,13 +1,11 @@
 extends Enemy
 
 @export var _targetPoint:Node2D
-@export var _speed = 3;
 
 var _movingTo:Array[Vector2] = [];
 
 func _ready():
 	super._ready()
-	_speed *= Global.ppt;
 	if (_targetPoint):
 		_movingTo.push_back(_targetPoint.global_position);
 		_movingTo.push_back(position);
@@ -20,14 +18,15 @@ func _process(_delta: float) -> void:
 		
 	var target = _movingTo[0];
 	velocity = position.direction_to(target) * _speed;
-#	position.x = move_toward(position.x, target.x, delta * _speed);
-#	position.y = move_toward(position.y, target.y, delta * _speed);
 
 	if (position.distance_squared_to(target) < 1):
 		_movingTo.pop_front();
 		_movingTo.push_back(target);
 	
 	move_and_slide()
+
+func _physics_process(delta: float) -> void:
+	pass
 
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
