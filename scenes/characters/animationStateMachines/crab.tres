@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=14 format=3 uid="uid://cma7bg6jw7tqr"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=15 format=3 uid="uid://cma7bg6jw7tqr"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x3vlm"]
 animation = &"idle"
@@ -42,14 +42,16 @@ advance_mode = 2
 advance_expression = "is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vi36d"]
-switch_mode = 2
 advance_mode = 2
 advance_expression = "is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u12dy"]
-switch_mode = 2
 advance_mode = 2
 advance_expression = "velocity.y >= 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_75wh6"]
+advance_mode = 2
+advance_expression = "velocity.y < 0"
 
 [resource]
 states/Locomotion/node = SubResource("AnimationNodeStateMachine_qn824")
@@ -59,5 +61,5 @@ states/idle/node = SubResource("AnimationNodeAnimation_qn824")
 states/idle/position = Vector2(570, 3.71192)
 states/jump/node = SubResource("AnimationNodeAnimation_507gp")
 states/jump/position = Vector2(401, 5)
-transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_e5o7c"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_x3vlm"), "jump", "Locomotion", SubResource("AnimationNodeStateMachineTransition_507gp"), "idle", "Locomotion", SubResource("AnimationNodeStateMachineTransition_vi36d"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_u12dy")]
+transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_e5o7c"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_x3vlm"), "jump", "Locomotion", SubResource("AnimationNodeStateMachineTransition_507gp"), "idle", "Locomotion", SubResource("AnimationNodeStateMachineTransition_vi36d"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_u12dy"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_75wh6")]
 graph_offset = Vector2(170.579, -78.2881)

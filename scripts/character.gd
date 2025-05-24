@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Character
 
 @export var _faceRight: bool = true;
+@export  var _sprite : AnimatedSprite2D;
 
 @export_category("Locomotion")
 @export var _speed = 3;
@@ -15,7 +16,7 @@ class_name Character
 @export var _max_underwater_fall:int = 4;
 var _jump_velocity: float;
 
-@onready var _sprite : AnimatedSprite2D = $AnimatedSprite2D;
+var bouncing:bool = false;
 
 var alive: bool = true;
 
@@ -49,7 +50,7 @@ func jump():
 		velocity.y = _jump_velocity
 		
 func stop_jump():
-	if alive && velocity.y < 0:
+	if !bouncing && alive && velocity.y < 0:
 		velocity.y = 0;
 
 #endregion
@@ -62,6 +63,8 @@ func _physics_process(delta: float):
 		face_right();
 		
 	if is_on_floor():
+		if bouncing: 
+			bouncing = false;
 		_ground_physics(delta);
 	else:
 		_air_physics(delta);
