@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://ckwkb8hx6fx6l"]
+[gd_scene load_steps=11 format=4 uid="uid://ckwkb8hx6fx6l"]
 
 [ext_resource type="Script" uid="uid://bnbfgbqsowddj" path="res://scripts/aquarium.gd" id="1_d0q3v"]
 [ext_resource type="Texture2D" uid="uid://gs218or5uahf" path="res://assets/Tank Sprite Sheet.png" id="1_u42aw"]
 [ext_resource type="Texture2D" uid="uid://dhn0v1aaslka8" path="res://assets/Pixel-16px Cave/tileset.png" id="2_d0q3v"]
+[ext_resource type="Material" uid="uid://b88rjs2uyfm52" path="res://scenes/splashProcessMaterial.tres" id="4_ffceb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
 texture = ExtResource("1_u42aw")
@@ -42,7 +43,7 @@ size = Vector2(88, 15)
 size = Vector2(73.5, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0q3v"]
-size = Vector2(310, 173)
+size = Vector2(310, 172)
 
 [node name="Aquarium" type="Node2D"]
 script = ExtResource("1_d0q3v")
@@ -70,6 +71,24 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
 position = Vector2(170, 129.5)
 shape = SubResource("RectangleShape2D_d0q3v")
+
+[node name="outSplash" type="GPUParticles2D" parent="."]
+position = Vector2(42, 42)
+emitting = false
+amount = 20
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.75
+process_material = ExtResource("4_ffceb")
+
+[node name="inSplash" type="GPUParticles2D" parent="."]
+position = Vector2(27, 43)
+emitting = false
+amount = 15
+lifetime = 0.45
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("4_ffceb")
 
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_touched"]
 [connection signal="body_entered" from="Water" to="." method="_on_water_body_entered"]
