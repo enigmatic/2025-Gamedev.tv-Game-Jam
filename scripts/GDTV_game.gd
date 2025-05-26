@@ -60,6 +60,7 @@ func _on_main_menu_pressed():
 
 func _on_player_die():
 	reset_layer.visible = true;
+	$ResetScreen/Panel/Restart.grab_focus()
 
 func _on_restart_pressed() -> void:
 	Utilities.reloadLevel()
