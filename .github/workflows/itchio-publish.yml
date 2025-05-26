@@ -30,6 +30,6 @@ jobs:
         with:
           butler_key: ${{secrets.ITCHIO_TOKEN}}
           itch_user: mcnigma
-          itch_game: 2025-gamedevtv-game-jam
+          itch_game: escape-the-tank
           version: ${{ github.ref_name }}
           files: "${{ steps.export.outputs.archive_directory }}/gamedev-2025-web.zip"
