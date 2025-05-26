@@ -23,7 +23,7 @@ position = Vector2(30, 81)
 position = Vector2(90, 155)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(170.5, 100)
+position = Vector2(170.5, 114)
 zoom = Vector2(3, 3)
 
 [node name="Jellyfish" parent="." node_paths=PackedStringArray("_targetPoint") instance=ExtResource("5_d06uk")]

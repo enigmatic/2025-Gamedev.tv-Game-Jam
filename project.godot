@@ -28,7 +28,7 @@ Global="*res://scripts/autoloads/global.gd"
 [display]
 
 window/size/viewport_width=1024
-window/size/viewport_height=768
+window/size/viewport_height=640
 window/size/resizable=false
 window/stretch/mode="viewport"
 

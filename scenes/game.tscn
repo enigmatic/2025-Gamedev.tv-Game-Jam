@@ -94,7 +94,7 @@ layout_mode = 1
 pre_scene = NodePath("../../..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(170.5, 100)
+position = Vector2(170.5, 114)
 zoom = Vector2(3, 3)
 
 [connection signal="pressed" from="ResetScreen/Panel/Restart" to="." method="_on_restart_pressed"]

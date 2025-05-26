@@ -70,9 +70,8 @@ func loadLevel(levelNumber: int):
 	if (levelNumber < 0):
 		return;
 	if (levelNumber >= levels.size()):
-		Engine.time_scale = 0
 		var scene = win_screen.instantiate()
-		get_tree().root.add_child(scene);
+		get_tree().root.call_deferred("add_child",scene);
 		if (_last_scene):
 			_last_scene.queue_free();
 			_last_scene = null;

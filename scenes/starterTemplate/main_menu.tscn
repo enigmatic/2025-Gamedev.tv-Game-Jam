@@ -370,7 +370,7 @@ h3_font_size = 48
 h4_font_size = 32
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(170.5, 100)
+position = Vector2(170.5, 114)
 zoom = Vector2(3, 3)
 
 [node name="Aquarium" parent="." instance=ExtResource("1_x20yj")]

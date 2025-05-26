@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://diur2ihmp877y"]
+[gd_scene load_steps=7 format=3 uid="uid://diur2ihmp877y"]
 
 [ext_resource type="Script" uid="uid://cj0nix3pip0ui" path="res://scripts/win-scene.gd" id="1_0fqbm"]
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/starterTemplate/MinimalUI/MinimalUI.tres" id="1_xirn5"]
 [ext_resource type="PackedScene" uid="uid://dc388hkklqvvc" path="res://scenes/starterTemplate/main_menu.tscn" id="2_6vg2h"]
+[ext_resource type="Texture2D" uid="uid://b26tp8ed88uxd" path="res://assets/crab jump.png" id="4_74nyh"]
+[ext_resource type="Texture2D" uid="uid://cf1misbmoecuv" path="res://assets/happy crab.png" id="5_e4a6r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_clhvm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_74nyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_e4a6r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="Winner" type="CanvasLayer"]
 script = ExtResource("1_0fqbm")
@@ -43,9 +59,15 @@ size_flags_horizontal = 0
 size_flags_vertical = 6
 focus_mode = 1
 theme_override_font_sizes/font_size = 24
-text = "You have finally escaped!
-"
+text = "You escaped!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(508, 293)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_clhvm")
+autoplay = "default"
+frame_progress = 0.392245
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
