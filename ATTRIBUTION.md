@@ -3,7 +3,7 @@
 ## Art
 
 ### Crab, Jellyfish, Octopus sprites
-Author: [Ethen](https://elthen.itch.io/)
+Author: [Elthen](https://elthen.itch.io/)
 [Crab](https://elthen.itch.io/2d-pixel-art-crab-sprites)
 [Jellyfish](https://elthen.itch.io/2d-pixel-art-jellyfish-sprites)
 [Octopus](https://elthen.itch.io/2d-pixel-art-octopus-sprites)
