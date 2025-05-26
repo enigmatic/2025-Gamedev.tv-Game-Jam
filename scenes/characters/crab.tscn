@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://ckxiwlqx7xda4" path="res://scripts/character.gd" id="1_qu84j"]
 [ext_resource type="Texture2D" uid="uid://bcnt35twuw748" path="res://assets/Crab Sprite Sheet.png" id="2_507gp"]
 [ext_resource type="Texture2D" uid="uid://b26tp8ed88uxd" path="res://assets/crab jump.png" id="3_507gp"]
-[ext_resource type="AudioStream" uid="uid://dju4r83o2bk0a" path="res://assets/audio/squick_squick_1.wav" id="4_qn824"]
 [ext_resource type="AudioStream" uid="uid://uvwm0bu1ea2a" path="res://assets/audio/squick_1.wav" id="4_s6fhh"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://cma7bg6jw7tqr" path="res://scenes/characters/animationStateMachines/crab.tres" id="4_utqan"]
 [ext_resource type="Script" uid="uid://d2xagsas6h21r" path="res://scripts/player.gd" id="4_x3vlm"]
+[ext_resource type="AudioStream" uid="uid://d2ih3q25c3n20" path="res://assets/audio/jump_randomizer.tres" id="5_s6fhh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p57ef"]
 atlas = ExtResource("2_507gp")
@@ -276,7 +276,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("4_qn824")
+"stream": ExtResource("5_s6fhh")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -357,7 +357,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_x3vlm")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-volume_db = 15.0
+volume_db = 10.0
 bus = &"Sound Effect"
 
 [connection signal="body_entered" from="Hurtbox" to="Player" method="_on_hurtbox_body_entered"]
