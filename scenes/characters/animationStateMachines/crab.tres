@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=15 format=3 uid="uid://cma7bg6jw7tqr"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=16 format=3 uid="uid://cma7bg6jw7tqr"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x3vlm"]
 animation = &"idle"
@@ -53,6 +53,10 @@ advance_expression = "velocity.y >= 0"
 advance_mode = 2
 advance_expression = "velocity.y < 0"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cu0sp"]
+advance_mode = 2
+advance_expression = "is_on_floor() == false"
+
 [resource]
 states/Locomotion/node = SubResource("AnimationNodeStateMachine_qn824")
 states/Locomotion/position = Vector2(441, 100)
@@ -61,5 +65,5 @@ states/idle/node = SubResource("AnimationNodeAnimation_qn824")
 states/idle/position = Vector2(570, 3.71192)
 states/jump/node = SubResource("AnimationNodeAnimation_507gp")
 states/jump/position = Vector2(401, 5)
-transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_e5o7c"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_x3vlm"), "jump", "Locomotion", SubResource("AnimationNodeStateMachineTransition_507gp"), "idle", "Locomotion", SubResource("AnimationNodeStateMachineTransition_vi36d"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_u12dy"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_75wh6")]
+transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_e5o7c"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_x3vlm"), "jump", "Locomotion", SubResource("AnimationNodeStateMachineTransition_507gp"), "idle", "Locomotion", SubResource("AnimationNodeStateMachineTransition_vi36d"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_u12dy"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_75wh6"), "Locomotion", "idle", SubResource("AnimationNodeStateMachineTransition_cu0sp")]
 graph_offset = Vector2(170.579, -78.2881)

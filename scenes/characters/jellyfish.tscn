@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://bbibsjpv5r08t"]
+[gd_scene load_steps=47 format=3 uid="uid://bbibsjpv5r08t"]
 
 [ext_resource type="Texture2D" uid="uid://mm2a1bjysdka" path="res://assets/Jellyfish Sprite Sheet.png" id="1_31bh7"]
 [ext_resource type="Script" uid="uid://docfuampomsik" path="res://scripts/jellyfish.gd" id="1_aw1ts"]
+[ext_resource type="AudioStream" uid="uid://c7rhsc1o2lk1k" path="res://assets/audio/blup_2.wav" id="3_bksl2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aw1ts"]
 atlas = ExtResource("1_31bh7")
@@ -421,6 +422,10 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_aw1ts")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bksl2")
+bus = &"Sound Effect"
 
 [connection signal="animation_finished" from="AnimatedSprite2D/AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

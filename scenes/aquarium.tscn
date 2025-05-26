@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://ckwkb8hx6fx6l"]
+[gd_scene load_steps=12 format=4 uid="uid://ckwkb8hx6fx6l"]
 
 [ext_resource type="Script" uid="uid://bnbfgbqsowddj" path="res://scripts/aquarium.gd" id="1_d0q3v"]
 [ext_resource type="Texture2D" uid="uid://gs218or5uahf" path="res://assets/Tank Sprite Sheet.png" id="1_u42aw"]
 [ext_resource type="Texture2D" uid="uid://dhn0v1aaslka8" path="res://assets/Pixel-16px Cave/tileset.png" id="2_d0q3v"]
 [ext_resource type="Material" uid="uid://b88rjs2uyfm52" path="res://scenes/splashProcessMaterial.tres" id="4_ffceb"]
+[ext_resource type="AudioStream" uid="uid://riy2tu1bvj8i" path="res://assets/audio/quick-splash-dropping-grapes-into-a-glass-of-water.wav" id="5_pxnnk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
 texture = ExtResource("1_u42aw")
@@ -89,6 +90,12 @@ lifetime = 0.45
 one_shot = true
 explosiveness = 1.0
 process_material = ExtResource("4_ffceb")
+
+[node name="splash" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(181, 42)
+stream = ExtResource("5_pxnnk")
+volume_db = 20.0
+bus = &"Sound Effect"
 
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_touched"]
 [connection signal="body_entered" from="Water" to="." method="_on_water_body_entered"]

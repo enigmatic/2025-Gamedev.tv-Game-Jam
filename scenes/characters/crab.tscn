@@ -1,8 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://bla5sb547sjk4"]
+[gd_scene load_steps=32 format=3 uid="uid://bla5sb547sjk4"]
 
 [ext_resource type="Script" uid="uid://ckxiwlqx7xda4" path="res://scripts/character.gd" id="1_qu84j"]
 [ext_resource type="Texture2D" uid="uid://bcnt35twuw748" path="res://assets/Crab Sprite Sheet.png" id="2_507gp"]
 [ext_resource type="Texture2D" uid="uid://b26tp8ed88uxd" path="res://assets/crab jump.png" id="3_507gp"]
+[ext_resource type="AudioStream" uid="uid://dju4r83o2bk0a" path="res://assets/audio/squick_squick_1.wav" id="4_qn824"]
+[ext_resource type="AudioStream" uid="uid://uvwm0bu1ea2a" path="res://assets/audio/squick_1.wav" id="4_s6fhh"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://cma7bg6jw7tqr" path="res://scenes/characters/animationStateMachines/crab.tres" id="4_utqan"]
 [ext_resource type="Script" uid="uid://d2xagsas6h21r" path="res://scripts/player.gd" id="4_x3vlm"]
 
@@ -206,10 +208,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"jump"]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_s6fhh")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ssvqc"]
 resource_name = "walk"
-length = 0.200003
+length = 0.600003
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -230,11 +247,26 @@ tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1, 2, 0, 1, 2, 0, 1, 2]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_qn824")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1kice"]
 _data = {
@@ -309,5 +341,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_x3vlm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = 15.0
+bus = &"Sound Effect"
 
 [connection signal="body_entered" from="Hurtbox" to="Player" method="_on_hurtbox_body_entered"]

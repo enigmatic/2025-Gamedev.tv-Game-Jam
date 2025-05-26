@@ -2,6 +2,7 @@ extends Enemy
 var move_dir = 1;
 
 @onready var raycast = $AnimatedSprite2D/RayCast2D
+@onready var deathSound: AudioStreamPlayer = $DeathSound
 
 func _process(_delta: float) -> void:
 	if (!alive):
@@ -27,6 +28,7 @@ func _on_hurt_box_body_entered(body):
 		run(0);
 		velocity.x = 0;
 		alive = false;
+		deathSound.play()
 		bounce_character(body)
 
 

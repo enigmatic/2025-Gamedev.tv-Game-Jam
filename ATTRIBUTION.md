@@ -14,6 +14,22 @@ Author: [Segart](https://segart.itch.io)
 [2D 16px Underwater Tileset](https://segart.itch.io/2d-16px-underwater-tileset)
 [2D 16px Cave Tileset](https://segart.itch.io/2d-16px-cave-tileset)
 
+## Audio
+
+### Quick Splash (dropping grapes into a glass of water)
+Author: [asherkaye2](https://freesound.org/people/asherkaye2/)
+Source: [freesound](https://freesound.org/people/asherkaye2/sounds/538143/)
+License: [Creative Commons 0](http://creativecommons.org/publicdomain/zero/1.0/)
+
+### Music: Sketchbook 2024-10-16
+Author: [Tallbeard](https://tallbeard.itch.io/)
+Source: [Music Loop Bundle](https://tallbeard.itch.io/music-loop-bundle)
+License: [Creative Commons 0](http://creativecommons.org/publicdomain/zero/1.0/)
+
+### Enemy "Pops"
+Author: [Cup Nooble](https://cupnooble.itch.io/)
+Source: [Sprout Lands](https://cupnooble.itch.io/sprout-lands-asset-pack)
+License: non-commercial
 
 ## Plugins
 

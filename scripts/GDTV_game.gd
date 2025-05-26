@@ -21,6 +21,8 @@ func _ready():
 		reset_layer.visible = false;
 		Utilities.loadLevel(0);
 		levelLoaded = true;
+	
+	AudioManager.play_music_sound();
 	resume_game();
 
 func _input(event: InputEvent):

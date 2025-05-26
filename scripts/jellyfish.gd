@@ -1,6 +1,7 @@
 extends Enemy
 
 @export var _targetPoint:Node2D
+@onready var deathSound: AudioStreamPlayer = $DeathSound
 
 var _movingTo:Array[Vector2] = [];
 
@@ -38,4 +39,5 @@ func _on_area_2d_body_entered(body: Character) -> void:
 	if (body.is_in_group("Player") && alive):
 		set_collision_layer_value(2, false);
 		alive = false;
+		deathSound.play();
 		bounce_character(body)
