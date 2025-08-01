@@ -3,7 +3,7 @@ name: Publish to Itch.io
 on:
   push:
     branches: ["release", "main"]
-
+    
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -24,9 +24,6 @@ jobs:
           cache: true
         env:
           GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
-
-      - name: File Listing
-        run: "ls -lR ${{ steps.export.outputs.build_directory }}"
         
       - name: Compress Files and Replace Them
         # You may pin to the exact commit or the version.
