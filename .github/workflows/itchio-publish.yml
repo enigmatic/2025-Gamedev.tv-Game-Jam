@@ -27,6 +27,7 @@ jobs:
         
       - name: Post Compress File Listing
         run: "ls -lR ${{ steps.export.outputs.build_directory }}/gamedev-2025-web"
+      - run: "mv ${{ steps.export.outputs.build_directory }}/gamedev-2025-web ./build"
         
       - name: Compress Files and Replace Them
         # You may pin to the exact commit or the version.
@@ -34,7 +35,7 @@ jobs:
         uses: StefH/ghaction-CompressFiles@v1
         with:
           # The path
-          path: ${{ steps.export.outputs.build_directory }} # default is .
+          path: ./build # default is .
           # The file extensions to compress.
           extensions: '.wasm' # optional, default is .js,.css,.html,.json
           # The compression utility to use.
@@ -44,7 +45,7 @@ jobs:
 
       - name: Post Compress File Listing
         if: always()
-        run: "ls -lR ${{ steps.export.outputs.build_directory }}/gamedev-2025-web"
+        run: "ls -lR ./build"
         
 #      - name: Publish to Itch
 #        uses: Ayowel/butler-to-itch@v1.2.0
