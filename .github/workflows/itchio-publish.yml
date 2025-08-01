@@ -43,10 +43,10 @@ jobs:
           depth: 3 # optional, default is 3
 
       - name: Remove Old WASM
-        if: always()
         run: "rm ./build/index.wasm"
 
       - name: list files
+        if: always()
         run: "ls -l ./build"
 
       - run: "sed -i -e 's/.wasm/.wasm.br/g' ./build/index.html"
