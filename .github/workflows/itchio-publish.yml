@@ -18,18 +18,33 @@ jobs:
           godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
           godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
           relative_project_path: ./
-          archive_output: true
+          archive_output: false
           # Use the GitHub Actions workflow cache to cache the Godot export templates and Godot executable. 
           # Helps speed up builds by not having to download them every time.
           cache: true
         env:
           GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
 
-      - name: Publish to Itch
-        uses: Ayowel/butler-to-itch@v1.2.0
+      - name: Compress Files and Replace Then
+        # You may pin to the exact commit or the version.
+        # uses: ThiagoJaweb/ghaction-CompressFiles@23278320ded41f5b5c203a4aef7e69789b044336
+        uses: ThiagoJaweb/ghaction-CompressFiles@v1.0.3
         with:
-          butler_key: ${{secrets.ITCHIO_TOKEN}}
-          itch_user: mcnigma
-          itch_game: escape-the-tank
-          version: ${{ github.ref_name }}
-          files: "${{ steps.export.outputs.archive_directory }}/gamedev-2025-web.zip"
+          # The path
+          path: ./ # default is .
+          # The file extensions to compress.
+          extensions: .wasm # optional, default is .js,.css,.html,.json
+          # The compression utility to use.
+          tools: brotli # optional, default is brotli,gzip
+          # Maximum folder depth to process
+          #depth: # optional, default is 3
+          
+
+#      - name: Publish to Itch
+#        uses: Ayowel/butler-to-itch@v1.2.0
+#        with:
+#          butler_key: ${{secrets.ITCHIO_TOKEN}}
+#          itch_user: mcnigma
+#          itch_game: escape-the-tank
+#          version: ${{ github.ref_name }}
+#          files: "${{ steps.export.outputs.archive_directory }}/gamedev-2025-web.zip"
