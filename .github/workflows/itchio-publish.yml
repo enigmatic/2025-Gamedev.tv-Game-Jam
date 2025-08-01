@@ -34,7 +34,7 @@ jobs:
         uses: sachk/compress-action@v1
         with:
           # The path
-          path: "${{ steps.export.outputs.build_directory }}/gamedev-2025-web"  # default is .
+          path: ${{ steps.export.outputs.build_directory  # default is .
           # The file extensions to compress.
           extensions: '.wasm' # optional, default is .js,.css,.html,.json
           # The compression utility to use.
