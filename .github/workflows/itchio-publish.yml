@@ -31,7 +31,7 @@ jobs:
         uses: ThiagoJaweb/ghaction-CompressFiles@v1.0.3
         with:
           # The path
-          path: ./ # default is .
+          path: "${{ steps.export.outputs.archive_directory }}" # default is .
           # The file extensions to compress.
           extensions: .wasm # optional, default is .js,.css,.html,.json
           # The compression utility to use.
@@ -39,7 +39,7 @@ jobs:
           # Maximum folder depth to process
           #depth: # optional, default is 3
       - name: File Listing
-        run: 'ls -lR'
+        run: "ls -lR ${{ steps.export.outputs.archive_directory }}"
 
 #      - name: Publish to Itch
 #        uses: Ayowel/butler-to-itch@v1.2.0
