@@ -42,20 +42,25 @@ jobs:
           # Maximum folder depth to process
           depth: 3 # optional, default is 3
 
+
+      - name: list files
+        if: always()
+        run: "ls -l ./build"
+        
       - name: Remove Old WASM
-        run: "rm ./build/index.wasm"
+        run: "rm ./build/gamedev-2025-web/index.wasm"
 
       - name: list files
         if: always()
         run: "ls -l ./build"
 
-      - run: "sed -i -e 's/.wasm/.wasm.br/g' ./build/index.html"
-      - run: "sed -i -e 's/.wasm`/.wasm.br`/g' ./build/index.js"
+      - run: "sed -i -e 's/.wasm/.wasm.br/g' ./build/gamedev-2025-web/index.html"
+      - run: "sed -i -e 's/.wasm`/.wasm.br`/g' ./build/gamedev-2025-web/index.js"
       - name: Zip For Release
         uses: TheDoctor0/zip-release@0.7.6
         with:
-          filename: gamedev-2025-web.zip
-          directory: ./build
+          filename: ./gamedev-2025-web.zip
+          directory: ./build/gamedev-2025-web
       
     
       - name: list files
