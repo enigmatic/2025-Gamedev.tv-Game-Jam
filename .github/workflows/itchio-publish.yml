@@ -34,13 +34,13 @@ jobs:
         uses: StefH/ghaction-CompressFiles@v1
         with:
           # The path
-          path: "${{ steps.export.outputs.build_directory }}/gamedev-2025-web" # default is .
+          path: .  # default is .
           # The file extensions to compress.
           extensions: '.wasm' # optional, default is .js,.css,.html,.json
           # The compression utility to use.
           tools: 'brotli' # optional, default is brotli,gzip
           # Maximum folder depth to process
-          depth: 1 # optional, default is 3
+          depth: 3 # optional, default is 3
 
       - name: Post Compress File Listing
         if: always()
