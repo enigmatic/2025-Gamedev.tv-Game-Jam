@@ -39,8 +39,7 @@ jobs:
           # Maximum folder depth to process
           #depth: # optional, default is 3
       - name: File Listing
-      - uses: pkg-src/github-action-git-bash@v1.1
-      - run: 'ls -lR'
+        run: 'ls -lR'
 
 #      - name: Publish to Itch
 #        uses: Ayowel/butler-to-itch@v1.2.0
