@@ -38,7 +38,7 @@ jobs:
           # The file extensions to compress.
           extensions: '.wasm' # optional, default is .js,.css,.html,.json
           # The compression utility to use.
-          tools: 'wasm' # optional, default is brotli,gzip
+          tools: 'brotli' # optional, default is brotli,gzip
           # Maximum folder depth to process
           depth: 1 # optional, default is 3
 
