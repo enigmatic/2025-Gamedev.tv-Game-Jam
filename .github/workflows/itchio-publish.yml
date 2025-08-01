@@ -59,12 +59,12 @@ jobs:
       - name: Zip For Release
         uses: TheDoctor0/zip-release@0.7.6
         with:
-          filename: ./gamedev-2025-web.zip
+          filename: gamedev-2025-web.zip
           directory: ./build/gamedev-2025-web
       
     
       - name: list files
-        run: "ls -l ."
+        run: "ls -lR ./build"
         
 #      - name: Publish to Itch
 #        uses: Ayowel/butler-to-itch@v1.2.0
